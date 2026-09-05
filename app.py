@@ -618,13 +618,11 @@ with tab2:
         c = colors.get(val, "#64748b")
         return f"color: {c}; font-weight: 600;"
 
-    # Display table with styled columns
+    # Display table with styled columns -- show full text, no truncation
     display_cols = ["settlement_id", "order_id", "tier", "match_status",
-                    "confidence", "category", "explanation"]
-
-    # Truncate explanation for display
-    display_df = filtered[display_cols].copy()
-    display_df["explanation"] = display_df["explanation"].str[:120]
+                    "confidence", "category", "explanation", "suggested_action"]
+    available_display = [c for c in display_cols if c in filtered.columns]
+    display_df = filtered[available_display].copy()
 
     styled = display_df.style.map(
         confidence_color, subset=["confidence"]
@@ -641,6 +639,10 @@ with tab2:
         use_container_width=True,
         height=500,
         hide_index=True,
+        column_config={
+            "explanation": st.column_config.TextColumn("Explanation", width="large"),
+            "suggested_action": st.column_config.TextColumn("Suggested Action", width="large"),
+        },
     )
 
     # Download buttons -- CSV (filtered) + PDF (full report)
@@ -1259,12 +1261,16 @@ with tab5:
         # Results table
         st.markdown("")
         display_cols_up = ["settlement_id", "order_id", "tier", "match_status",
-                          "confidence", "category", "explanation"]
+                          "confidence", "category", "explanation", "suggested_action"]
         available_cols = [c for c in display_cols_up if c in up_results.columns]
         display_up = up_results[available_cols].copy()
-        if "explanation" in display_up.columns:
-            display_up["explanation"] = display_up["explanation"].astype(str).str[:120]
-        st.dataframe(display_up, use_container_width=True, height=400, hide_index=True)
+        st.dataframe(
+            display_up, use_container_width=True, height=400, hide_index=True,
+            column_config={
+                "explanation": st.column_config.TextColumn("Explanation", width="large"),
+                "suggested_action": st.column_config.TextColumn("Suggested Action", width="large"),
+            },
+        )
 
         # Download buttons
         dl_u1, dl_u2 = st.columns(2)

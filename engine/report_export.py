@@ -139,7 +139,7 @@ class ReconciliationPDF(FPDF):
 
     def add_exception_table(self, headers: list[str], rows: list[list[str]],
                             col_widths: list[float]):
-        """Add exception table — simple single-row cells with truncated text."""
+        """Add exception table with word-wrapped text for long columns."""
         # Header row
         self.set_font("Helvetica", "B", 7)
         self.set_fill_color(45, 55, 72)
@@ -149,25 +149,54 @@ class ReconciliationPDF(FPDF):
                       border=1, fill=True, align="C")
         self.ln()
 
-        # Data rows
+        # Data rows with word-wrap for long columns (explanation, suggested_action)
         self.set_text_color(30, 30, 30)
+        long_cols = {i for i, h in enumerate(headers)
+                     if h.lower() in ("explanation", "suggested action")}
+
         for row_idx, row in enumerate(rows):
             if row_idx % 2 == 0:
                 self.set_fill_color(245, 247, 250)
             else:
                 self.set_fill_color(255, 255, 255)
 
-            if self.get_y() + 6 > self.h - 20:
+            # Calculate row height based on longest wrapped text
+            self.set_font("Helvetica", "", 6.5)
+            line_h = 5
+            max_lines = 1
+            for i, cell_val in enumerate(row):
+                if i in long_cols:
+                    text = _sanitize_text(str(cell_val))
+                    # Estimate lines needed (chars per line based on col width)
+                    chars_per_line = max(10, int(col_widths[i] / 1.45))
+                    lines = max(1, -(-len(text) // chars_per_line))  # ceiling div
+                    max_lines = max(max_lines, lines)
+            row_h = max_lines * line_h
+
+            # Page break check
+            if self.get_y() + row_h > self.h - 20:
                 self.add_page()
 
+            # Draw each cell
+            x_start = self.get_x()
+            y_start = self.get_y()
             self.set_font("Helvetica", "", 6.5)
+
             for i, cell_val in enumerate(row):
-                # Truncate based on column width
-                max_chars = max(10, int(col_widths[i] / 1.6))
-                val = _sanitize_text(str(cell_val))[:max_chars]
-                self.cell(col_widths[i], 6, val, border=1,
-                          fill=True, align="C" if i < 4 else "L")
-            self.ln()
+                self.set_xy(x_start + sum(col_widths[:i]), y_start)
+                text = _sanitize_text(str(cell_val))
+
+                if i in long_cols:
+                    # Multi-line wrapped cell
+                    self.multi_cell(col_widths[i], line_h, text,
+                                    border=1, fill=True, align="L")
+                else:
+                    # Short column — single centered cell, full row height
+                    self.cell(col_widths[i], row_h, text,
+                              border=1, fill=True,
+                              align="C" if i < 4 else "L")
+
+            self.set_xy(x_start, y_start + row_h)
 
 
 def generate_pdf_report(results: pd.DataFrame,
