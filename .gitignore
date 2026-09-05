@@ -1,0 +1,44 @@
+# Environment — never commit real API keys
+.env
+.streamlit/secrets.toml
+
+# Markdown docs (keep only README.md)
+PRD.md
+PROGRESS.md
+PITCH_NOTES.md
+BUILD_AGENT_PROMPT.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.agents/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+captures/
+
+# Conda/Venv
+.conda/
+venv/
+env/
+
+# Runtime artifacts (auto-generated, not source)
+provider_health.json
+data/pipeline_results.csv
+data/test_report.pdf

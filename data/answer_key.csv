@@ -1,0 +1,101 @@
+order_id,settlement_id,expected_tier,mismatch_type,expected_match_status,notes
+ORD1000,STL5000,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1001,STL5001,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1002,STL5002,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1003,STL5003,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1004,STL5004,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1005,STL5005,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1006,STL5006,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1007,STL5007,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1008,STL5008,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1009,STL5009,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1010,STL5010,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1011,STL5011,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1012,STL5012,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1013,STL5013,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1014,STL5014,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1015,STL5015,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1016,STL5016,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1017,STL5017,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1018,STL5018,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1019,STL5019,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1020,STL5020,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1021,STL5021,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1022,STL5022,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1023,STL5023,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1024,STL5024,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1025,STL5025,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1026,STL5026,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1027,STL5027,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1028,STL5028,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1029,STL5029,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1030,STL5030,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1031,STL5031,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1032,STL5032,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1033,STL5033,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1034,STL5034,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1035,STL5035,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1036,STL5036,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1037,STL5037,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1038,STL5038,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1039,STL5039,1,perfect_match,matched,"Exact ID + amount match (UPI, zero fee)"
+ORD1040,STL5040,2,fee_adjusted,matched,Amount differs by fee(218.31)+tax(39.3). Method: wallet
+ORD1041,STL5041,2,fee_adjusted,matched,Amount differs by fee(107.0)+tax(19.26). Method: wallet
+ORD1042,STL5042,2,fee_adjusted,matched,Amount differs by fee(186.95)+tax(33.65). Method: card
+ORD1043,STL5043,2,fee_adjusted,matched,Amount differs by fee(230.37)+tax(41.47). Method: wallet
+ORD1044,STL5044,2,fee_adjusted,matched,Amount differs by fee(94.8)+tax(17.06). Method: wallet
+ORD1045,STL5045,2,fee_adjusted,matched,Amount differs by fee(155.83)+tax(28.05). Method: card
+ORD1046,STL5046,2,fee_adjusted,matched,Amount differs by fee(102.32)+tax(18.42). Method: wallet
+ORD1047,STL5047,2,fee_adjusted,matched,Amount differs by fee(317.43)+tax(57.14). Method: netbanking
+ORD1048,STL5048,2,fee_adjusted,matched,Amount differs by fee(32.59)+tax(5.87). Method: card
+ORD1049,STL5049,2,fee_adjusted,matched,Amount differs by fee(295.44)+tax(53.18). Method: card
+ORD1050,STL5050,2,fee_adjusted,matched,Amount differs by fee(231.51)+tax(41.67). Method: wallet
+ORD1051,STL5051,2,fee_adjusted,matched,Amount differs by fee(55.8)+tax(10.04). Method: wallet
+ORD1052,STL5052,2,fee_adjusted,matched,Amount differs by fee(372.28)+tax(67.01). Method: card
+ORD1053,STL5053,2,fee_adjusted,matched,Amount differs by fee(98.68)+tax(17.76). Method: wallet
+ORD1054,STL5054,2,fee_adjusted,matched,Amount differs by fee(324.76)+tax(58.46). Method: netbanking
+ORD1055,STL5055,2,date_drift,matched,Fee-adjusted match with T+3 settlement date drift
+ORD1056,STL5056,2,date_drift,matched,Fee-adjusted match with T+3 settlement date drift
+ORD1057,STL5057,2,date_drift,matched,Fee-adjusted match with T+3 settlement date drift
+ORD1058,STL5058,2,date_drift,matched,Fee-adjusted match with T+4 settlement date drift
+ORD1059,STL5059,2,date_drift,matched,Fee-adjusted match with T+5 settlement date drift
+ORD1060,STL5060,2,date_drift,matched,Fee-adjusted match with T+4 settlement date drift
+ORD1061,STL5061,2,date_drift,matched,Fee-adjusted match with T+4 settlement date drift
+ORD1062,STL5062,2,date_drift,matched,Fee-adjusted match with T+5 settlement date drift
+ORD1063,STL5063,2,date_drift,matched,Fee-adjusted match with T+3 settlement date drift
+ORD1064,STL5064,2,date_drift,matched,Fee-adjusted match with T+3 settlement date drift
+ORD1065,STL5065,3,partial_refund,ai_resolved,"Original ₹4640.21, refund ₹1923.43 (41%), settled ₹2652.66"
+ORD1066,STL5066,3,partial_refund,ai_resolved,"Original ₹6292.36, refund ₹1887.22 (30%), settled ₹4301.18"
+ORD1067,STL5067,3,partial_refund,ai_resolved,"Original ₹2860.27, refund ₹1318.18 (46%), settled ₹1514.8"
+ORD1068,STL5068,3,partial_refund,ai_resolved,"Original ₹18600.97, refund ₹10034.82 (54%), settled ₹8363.99"
+ORD1069,STL5069,3,partial_refund,ai_resolved,"Original ₹10145.81, refund ₹5538.19 (55%), settled ₹4509.75"
+ORD1070,STL5070,3,partial_refund,ai_resolved,"Original ₹1040.95, refund ₹370.75 (36%), settled ₹655.97"
+ORD1071,STL5071,3,partial_refund,ai_resolved,"Original ₹9037.14, refund ₹5267.99 (58%), settled ₹3689.1"
+ORD1072,STL5072,3,partial_refund,ai_resolved,"Original ₹4608.06, refund ₹1322.88 (29%), settled ₹3207.65"
+ORD1073,STL5073,3,duplicate_order,ai_resolved,"Duplicate order_id in ledger — one settlement, two order entries"
+ORD1074,STL5074,3,duplicate_order,ai_resolved,"Duplicate order_id in ledger — one settlement, two order entries"
+ORD1075,STL5075,3,duplicate_order,ai_resolved,"Duplicate order_id in ledger — one settlement, two order entries"
+ORD1076,STL5076,3,duplicate_order,ai_resolved,"Duplicate order_id in ledger — one settlement, two order entries"
+ORD1077,STL5077,3,duplicate_order,ai_resolved,"Duplicate order_id in ledger — one settlement, two order entries"
+ORD1078,STL5078,3,duplicate_order,ai_resolved,"Duplicate order_id in ledger — one settlement, two order entries"
+,STL5079,4,orphan_settlement,unresolved,No order ORD9083 exists in the ledger
+,STL5080,4,orphan_settlement,unresolved,No order ORD9209 exists in the ledger
+,STL5081,4,orphan_settlement,unresolved,No order ORD9271 exists in the ledger
+,STL5082,4,orphan_settlement,unresolved,No order ORD9323 exists in the ledger
+,STL5083,4,orphan_settlement,unresolved,No order ORD9469 exists in the ledger
+,STL5084,4,orphan_settlement,unresolved,No order ORD9550 exists in the ledger
+,STL5085,4,orphan_settlement,unresolved,No order ORD9955 exists in the ledger
+ORD1079,,4,orphan_order,unresolved,Order ORD1079 has no matching settlement. Status: pending
+ORD1080,,4,orphan_order,unresolved,Order ORD1080 has no matching settlement. Status: paid
+ORD1081,,4,orphan_order,unresolved,Order ORD1081 has no matching settlement. Status: paid
+ORD1082,,4,orphan_order,unresolved,Order ORD1082 has no matching settlement. Status: pending
+ORD1083,,4,orphan_order,unresolved,Order ORD1083 has no matching settlement. Status: pending
+ORD1084,,4,orphan_order,unresolved,Order ORD1084 has no matching settlement. Status: paid
+ORD1085,,4,orphan_order,unresolved,Order ORD1085 has no matching settlement. Status: paid
+ORD1086,"STL5086,STL5087",3,split_settlement,ai_resolved,"Total ₹22822.74, settled as ₹14261.49 + ₹8076.49 across 2 UTRs"
+ORD1087,"STL5088,STL5089",3,split_settlement,ai_resolved,"Total ₹21075.01, settled as ₹6551.97 + ₹14075.41 across 2 UTRs"
+ORD1088,"STL5090,STL5091",3,split_settlement,ai_resolved,"Total ₹16653.61, settled as ₹6582.0 + ₹9678.59 across 2 UTRs"
+ORD1089,"STL5092,STL5093",3,split_settlement,ai_resolved,"Total ₹14688.65, settled as ₹6772.48 + ₹7604.18 across 2 UTRs"
+ORD1090,"STL5094,STL5095",3,split_settlement,ai_resolved,"Total ₹3730.61, settled as ₹2379.48 + ₹1263.09 across 2 UTRs"
+ORD1091,"STL5096,STL5097",3,split_settlement,ai_resolved,"Total ₹21195.69, settled as ₹11030.77 + ₹9664.71 across 2 UTRs"
+ORD1092,"STL5098,STL5099",3,split_settlement,ai_resolved,"Total ₹4931.25, settled as ₹2043.08 + ₹2783.43 across 2 UTRs"

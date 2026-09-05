@@ -1,0 +1,26 @@
+# AI Finance Controller — Dependencies
+# Install: conda activate razorpay && pip install -r requirements.txt
+
+# Data generation
+faker>=33.0.0
+
+# Matching engine
+pandas>=2.2.0
+rapidfuzz>=3.12.0
+
+# AI layer — single OpenAI-compatible client for all 5 providers
+openai>=1.60.0
+python-dotenv>=1.0.1
+
+# Dashboard
+streamlit>=1.40.0
+plotly>=5.24.0
+
+# Utilities
+numpy>=2.0.0
+
+# Report export
+fpdf2>=2.8.0
+
+# Caching (Supabase)
+supabase>=2.31.0
