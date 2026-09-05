@@ -203,10 +203,23 @@ DATA_DIR = Path(__file__).resolve().parent / "data"
 
 @st.cache_data
 def load_data():
-    """Load all data files with caching."""
-    results = pd.read_csv(DATA_DIR / "pipeline_results.csv")
+    """Load all data files with caching.
+
+    If pipeline_results.csv doesn't exist (e.g. fresh Streamlit Cloud deploy),
+    auto-run the deterministic Tier 1+2 pipeline to generate it (~0.08s).
+    """
+    results_path = DATA_DIR / "pipeline_results.csv"
     settlements = pd.read_csv(DATA_DIR / "settlement_report.csv")
     orders = pd.read_csv(DATA_DIR / "order_ledger.csv")
+
+    if not results_path.exists():
+        # Auto-generate via deterministic pipeline (no AI, no API keys needed)
+        from engine.pipeline import run_pipeline
+        results, _, _ = run_pipeline(settlements, orders, use_ai=False)
+        results.to_csv(results_path, index=False)
+    else:
+        results = pd.read_csv(results_path)
+
     return results, settlements, orders
 
 
