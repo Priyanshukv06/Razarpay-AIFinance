@@ -40,5 +40,4 @@ env/
 
 # Runtime artifacts (auto-generated, not source)
 provider_health.json
-data/pipeline_results.csv
 data/test_report.pdf
