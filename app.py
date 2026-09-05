@@ -24,7 +24,7 @@ from engine import cache as supabase_cache
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="AI Finance Controller | Reconciliation Dashboard",
-    page_icon=":bar_chart:",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -191,6 +191,20 @@ st.markdown("""
         font-weight: 600 !important;
         border-radius: 8px !important;
     }
+
+    /* File uploader -- compact in columns, no stacking */
+    [data-testid="stFileUploader"] section {
+        padding: 0 !important;
+    }
+    [data-testid="stFileUploader"] section > input + div {
+        display: none !important;
+    }
+    [data-testid="stFileUploader"] small {
+        display: none !important;
+    }
+    [data-testid="stFileUploader"] section > button {
+        width: 100% !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -346,7 +360,7 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 # Main content -- tabs
 # ---------------------------------------------------------------------------
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["  Summary  ", "  Exception Table  ", "  Category Analysis  ", "  \U0001f916 Ask the Ledger  ", "  \U0001f4e4 Upload & Reconcile  "])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["  Summary  ", "  Exception Table  ", "  Category Analysis  ", "  Ask the Ledger  ", "  Upload & Reconcile  "])
 
 
 # ===========================================================================
@@ -878,7 +892,7 @@ with tab4:
     # Clear conversation button (only show if there's history)
     if st.session_state.qa_history:
         st.divider()
-        if st.button("\U0001f5d1 Clear Conversation", key="clear_qa"):
+        if st.button("Clear Conversation", key="clear_qa"):
             st.session_state.qa_history = []
             st.session_state.qa_agent = None
             st.rerun()
@@ -918,7 +932,7 @@ with tab5:
 
     # Restart button (always visible if not idle)
     if st.session_state.upload_state != "idle":
-        if st.button("\U0001f504 Restart Pipeline (Clear All)", key="restart_pipeline"):
+        if st.button("Restart Pipeline (Clear All)", key="restart_pipeline"):
             # Delete from Supabase if we have a hash
             if st.session_state.upload_hash:
                 supabase_cache.delete_cached_results(st.session_state.upload_hash)
@@ -985,7 +999,7 @@ with tab5:
                                             key="ord_upload")
 
         # Load button
-        if st.button("\U0001f4c2 Load Dataset", key="load_dataset", type="primary"):
+        if st.button("Load Dataset", key="load_dataset", type="primary"):
             stl_df = None
             ord_df = None
             source = None
@@ -1115,7 +1129,7 @@ with tab5:
 
             ai_col1, ai_col2 = st.columns(2)
             with ai_col1:
-                if st.button("\U0001f9e0 Run AI Analysis", key="run_tier34", type="primary"):
+                if st.button("Run AI Analysis", key="run_tier34", type="primary"):
                     with st.status("Running AI analysis...", expanded=True) as status_ui:
                         st.write("Initializing LLM router (5 providers, 10 models)...")
                         from engine.pipeline import run_pipeline
